@@ -1,0 +1,16 @@
+.sidemenu-list-newalwtter .dd-toggle-chat-docs {
+  font-size: 2rem;
+  margin: 2rem 0;
+  padding: 0 0.5rem;
+}
+
+.newsletter-sidemenu {
+  width: 70px !important;
+
+  &-nav {
+    display: contents;
+  }
+  &-nav .copyright {
+    transform: rotate(-90deg);
+  }
+}

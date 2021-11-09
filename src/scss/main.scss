@@ -1,0 +1,215 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;300;400;500;600;700;800;900&display=swap");
+
+$primary-color: #404040;
+$light-grey: #686868;
+$color: #fff;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+}
+@mixin flexSpace {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flexSpaceAround {
+  display: flex;
+  justify-content: space-around;
+}
+@mixin direction {
+  display: flex;
+  flex-direction: column;
+}
+@mixin user-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0px, 100px) 1fr minmax(0px, 350px) repeat(
+      5,
+      1fr
+    );
+}
+@mixin blog-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0px, 100px) minmax(0px, 350px) repeat(
+      8,
+      1fr
+    );
+}
+body {
+  width: 100vw;
+  max-width: 2500px;
+  height: 100vh;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 300;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #333;
+  color: $color;
+  overflow: hidden;
+  font-family: "Spartan", sans-serif;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  .header {
+    background-image: linear-gradient(to right, #622db9, #b86eff);
+    height: 70px;
+    @include flexCenter;
+  }
+
+  .logo {
+    background-image: url(../images/logo-sas.e6638ecd6fa633dd07a043eea075a81b.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    align-self: center;
+    justify-self: center;
+    width: 158px;
+    height: 100%;
+    margin-left: 1rem;
+    animation: fade-in-center 1s;
+  }
+  .main-flex {
+    display: flex;
+  }
+
+  .my {
+    margin-left: auto;
+  }
+  .animation {
+    animation: fade-in-center-my 1s;
+  }
+
+  .dd-toggle {
+    @include flexCenter;
+    font: initial;
+    border: inherit;
+    background: none;
+    color: $color;
+    transition: background-color 0.3s ease-in;
+    outline: none;
+    text-decoration: none;
+    padding: 0.3rem 1rem;
+
+    &-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    &-chat {
+      font: initial;
+      border: inherit;
+      background: none;
+      color: $color;
+      outline: none;
+    }
+  }
+  .header .dd-toggle:nth-of-type(4) {
+    margin-right: 1rem;
+  }
+  @media (max-width: 450px) {
+    .header .dd-toggle {
+      padding: 0;
+      margin-right: 0.6rem;
+    }
+  }
+
+  .dd-toggle-icon {
+    font-size: 1.2rem;
+  }
+  .curent-page {
+    border-bottom: 2px solid $color;
+  }
+  //  main
+
+  .sidemenu {
+    width: 15%;
+    max-width: 70px;
+
+    &-nav {
+      height: calc(100vh - 70px);
+    }
+    &-list {
+      @include flexCenter;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: calc(100vh - 70px);
+      border-right: 2px solid $primary-color;
+    }
+    &-list li {
+      padding: 0 0.5rem;
+      transition: all 0.5s;
+    }
+    &-list li:hover,
+    &-list li:focus {
+      transform: scale(0.9);
+    }
+    &-list button {
+      font-size: 2rem;
+      margin: 2rem 0;
+      font-weight: bold;
+      font-family: "Spartan", sans-serif;
+    }
+  }
+
+  // media
+  @media (max-width: 1000px) {
+    .sidemenu-list {
+      height: initial;
+    }
+  }
+  @media (max-width: 400px) {
+    .main {
+      flex-direction: column;
+    }
+    .dd-toggle {
+      padding: 0.3rem 0.5rem;
+    }
+  }
+
+  //  keyframes animation
+}
+@keyframes fade-in-center {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes fade-in-center-my {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes fade-in-from-right {
+  0% {
+    transform: translate(100%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes fade-in-from-top {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@import "./chat.scss";
+@import "./user.scss";
+@import "./chat-room.scss";
+@import "./blog-list.scss";
+@import "./blog-form.scss";
+@import "./newsletter.scss";
+@import "./blog_content_secon.scss";
